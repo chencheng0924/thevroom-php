@@ -54,7 +54,7 @@
         // echo "<br/>";
         // echo "<img src='/FileUpload/".$fileName."'/>";
 
-        $sql = "INSERT INTO Member(PASSWORD, EMAIL, ADDRESS, FULLNAME, BIRTHDAY) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO testmember(PASSWORD, EMAIL, ADDRESS, FULLNAME, BIRTHDAY) VALUES (?, ?, ?, ?, ?)";
 
         $pdo->exec($sql);
 

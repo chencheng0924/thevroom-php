@@ -19,7 +19,7 @@
     //=======================================================
     // echo $SEMAIL;
 
-    $sql = "SELECT * FROM testsignup WHERE EMAIL = ? and PASSWORD = ?";
+    $sql = "SELECT * FROM testmember WHERE EMAIL = ? and PASSWORD = ?";
 
     $statement = $pdo->prepare($sql);
     $statement->bindValue(1, $_POST["SIGNEM"]);
