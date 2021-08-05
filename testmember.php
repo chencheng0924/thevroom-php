@@ -14,7 +14,7 @@
     //---------------------------------------------------
 
     //判斷是否上傳成功
-    if($_POST["PASSWORD"]> 0){
+    if($_POST["PASSWORD"] === ''){
         echo "上傳失敗: 錯誤代碼";
     }else{
         //取得上傳的檔案資訊=======================================
@@ -54,7 +54,7 @@
         // echo "<br/>";
         // echo "<img src='/FileUpload/".$fileName."'/>";
 
-        $sql = "INSERT INTO Member(ID, PASSWORD, EMAIL, ADDRESS, FULLNAME, BIRTHDAY) VALUES (1, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO Member(PASSWORD, EMAIL, ADDRESS, FULLNAME, BIRTHDAY) VALUES (?, ?, ?, ?, ?)";
 
         $pdo->exec($sql);
 
