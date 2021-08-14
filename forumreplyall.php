@@ -4,7 +4,7 @@
        $db_host = "127.0.0.1";
        $db_user = "root";
        $db_pass = "root";   // 記得更改自己的密碼
-       $db_select = "mydb";   // 記得更改成團專的schemas名稱
+       $db_select = "thevroom";   // 記得更改成團專的schemas名稱
 
        //建立資料庫連線物件
        $dsn = "mysql:host=".$db_host.";dbname=".$db_select;
@@ -14,24 +14,28 @@
 
        //---------------------------------------------------
 
+       $FORUMID = $_POST['FORUMID'];
+
        //建立SQL語法
-       $sql = "SELECT namethree FROM test2";
+       $sql = "SELECT f.*
+       FROM FORUM f
+           join (
+               select ARTICLEID
+               from FORUMREPLY
+               group by ARTICLEID
+               order by COUNT(*) desc
+               limit 6) t
+               on f.ARTICLEID = t.ARTICLEID";
 
        //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
-       $statement = $pdo->query($sql);
+       $statement = $pdo->prepare($sql);
+       $statement->bindValue(1 , $FORUMID);
+       $statement->execute();
 
        //抓出全部且依照順序封裝成一個二維陣列
        $data = $statement->fetchAll();
 
-       //將二維陣列取出顯示其值
-    //    foreach($data as $index => $row){
-	//        echo $row["ID"];   //欄位名稱
-	//        echo " / ";
-	//        echo $row["PASSWORD"];    //欄位名稱
-	//        echo " / ";
-	//        echo $row["GENDER"];    //欄位名稱	       
-    //    }
+       echo json_encode($data)     
 
-       echo json_encode($data);    // 轉成JSON
 
 ?>
