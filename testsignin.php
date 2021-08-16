@@ -3,7 +3,7 @@
     $db_host = "127.0.0.1";
     $db_user = "root";
     $db_pass = "root";
-    $db_select = "mydb";
+    $db_select = "thevroom";
 
     //建立資料庫連線物件
     $dsn = "mysql:host=".$db_host.";dbname=".$db_select;
@@ -19,7 +19,7 @@
     //=======================================================
     // echo $SEMAIL;
 
-    $sql = "SELECT * FROM testmember WHERE EMAIL = ? and PASSWORD = ?";
+    $sql = "SELECT * FROM Member WHERE EMAIL = ? and PASSWORD = ?";
 
     $statement = $pdo->prepare($sql);
     $statement->bindValue(1, $_POST["SIGNEM"]);
