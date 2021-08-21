@@ -14,15 +14,16 @@
     //---------------------------------------------------
 
     //判斷是否上傳成功
-    if($_POST["PASSWORD"] === ''){
+    if($_POST["PASSWORD"] == ''){
         echo "上傳失敗: 錯誤代碼";
     }else{
         //取得上傳的檔案資訊=======================================
+        // $randomId = $_POST["ID"];
         $first = $_POST["PASSWORD"];    //檔案名稱含副檔名        
         $second = $_POST["EMAIL"];   //Server上的暫存檔路徑含檔名        
         $third = $_POST["ADDRESS"]; 
         $fourth = $_POST["FULLNAME"];    //檔案種類        
-        $fifth = $_POST["BIRTHDAY"];    //檔案種類        
+        $fifth = $_POST["BIRTHDAY"];    //檔案種類
         //=======================================================
 
         //Web根目錄真實路徑
@@ -54,11 +55,12 @@
         // echo "<br/>";
         // echo "<img src='/FileUpload/".$fileName."'/>";
 
-        $sql = "INSERT INTO testmember(PASSWORD, EMAIL, ADDRESS, FULLNAME, BIRTHDAY) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO Member(PASSWORD, EMAIL, ADDRESS, FULLNAME, BIRTHDAY) VALUES (?, ?, ?, ?, ?)";
 
         $pdo->exec($sql);
 
         $statement = $pdo->prepare($sql);
+        // $statement->bindValue(1 , $randomId);
         $statement->bindValue(1 , $first);
         $statement->bindValue(2 , $second);
         $statement->bindValue(3 , $third);
