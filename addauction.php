@@ -1,5 +1,4 @@
 <?php
-    try {
     //MySQL相關資訊
     $db_host = "127.0.0.1";
     $db_user = "root";
@@ -48,7 +47,7 @@
         move_uploaded_file($filePath_Temp, $filePath);
 
 
-        $sql = "INSERT INTO AUCTIONINFO(MEMBER_ID, NAME, CARSORT, CARBRAND, CARSERIES, DESCRIPTION, REGION, ADDRESS, RESERVEPRICE, STARTINGTIME, DURATION, YEAR, COLOR, DISPLACEMENT, DOOR, MILES, IMGPATH) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO AUCTIONINFO(MEMBER_ID, NAME, CARSORT, CARBRAND, CARSERIES, DESCRIPTION, REGION, ADDRESS, RESERVEPRICE, STARTINGTIME, DURATION, YEAR, COLOR, DISPLACEMENT, DOOR, MILES, IMGPATH, JUDGENUM, CURRENTPRICE) VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?)";
 
         // $pdo->exec($sql);
 
@@ -71,13 +70,11 @@
         $statement->bindValue(15 , $fourteen);
         $statement->bindValue(16 , $fifteen);
         $statement->bindValue(17 , $realPath);
+        $statement->bindValue(18 , $eight);
         $statement->execute();
         echo 123;
 
-    }}catch (Exception $e) {   
-        echo $e->getMessage();   
-
-        } 
+    }
     //取得檔案副檔名
     // function getExtensionName($filePath){
     //     $path_parts = pathinfo($filePath);
