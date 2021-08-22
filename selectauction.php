@@ -15,7 +15,7 @@
        //---------------------------------------------------
 
        //建立SQL語法
-       $sql = "SELECT AUCTIONID,YEAR,CARBRAND,CARSERIES,DESCRIPTION,MILES,RESERVEPRICE,IMGPATH FROM AUCTIONINFO WHERE JUDGENUM = 0";
+       $sql = "SELECT AUCTIONID,YEAR,CARBRAND,CARSERIES,DESCRIPTION,MILES,RESERVEPRICE,IMGPATH,STARTINGTIME,DURATION,CURRENTPRICE, NAME FROM AUCTIONINFO WHERE JUDGENUM = 0";
 
        //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
        $statement = $pdo->query($sql);

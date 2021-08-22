@@ -12,7 +12,7 @@
     $pdo = new PDO($dsn, $db_user, $db_pass);
     //---------------------------------------------------
     $first = $_POST["acid"];
-    echo $first;
+    // echo $first;
     $sql = "UPDATE AUCTIONINFO SET JUDGENUM = 1 WHERE AUCTIONID = ?";
 
     $statement = $pdo->prepare($sql);

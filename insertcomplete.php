@@ -13,19 +13,19 @@
 
     //---------------------------------------------------
     //判斷是否上傳成功
-    if($_POST["AUCTIONID"] == ''){
+    if($_POST["acid"] == ''){
         echo "上傳失敗: 錯誤代碼";
     }else{
         //取得上傳的檔案資訊=======================================
-        $zero = $_POST["AUCTIONID"];
-        $first = $_POST["MEMBERID"];       
-        $second = $_POST["RESERVEPRICE"];      
-        $third = $_POST["STARTINGTIME"]; 
-        $fourth = $_POST["AUPATH"];
-        $five = $_POST["AUNAME"];
+        $zero = $_POST["acid"];
+        $first = $_POST["pr"];       
+        $second = $_POST["path"];      
+        $third = $_POST["end"]; 
+        $fourth = $_POST["acname"];
+        $five = $_POST["memberidHigh"];
         //=======================================================
 
-        $sql = "INSERT INTO FOLLOWAUCTION(AUCTIONID, MEMBERID, RESERVEPRICE, STARTINGTIME, AUPATH, AUNAME) VALUE (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO AUCTIONCOMPLETE(AUCTIONID, PRICE, IMGPATH, ENDTIME, AUCTIONNAME, HIGHMEMBERID) VALUE (?, ?, ?, ?, ?, ?)";
 
         $statement = $pdo->prepare($sql);
         $statement->bindValue(1 , $zero);

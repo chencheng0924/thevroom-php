@@ -23,10 +23,7 @@
         $second = $_POST["EMAIL"];   //Server上的暫存檔路徑含檔名        
         $third = $_POST["ADDRESS"]; 
         $fourth = $_POST["FULLNAME"];    //檔案種類        
-        $fifth = $_POST["BIRTHDAY"];    //檔案種類        
-        $sixth = $_POST["MOBILE"];
-        $seventh = $_POST["JEDGENUM"];
-            //檔案種類        
+        $fifth = $_POST["BIRTHDAY"];    //檔案種類
         //=======================================================
 
         //Web根目錄真實路徑
@@ -58,7 +55,7 @@
         // echo "<br/>";
         // echo "<img src='/FileUpload/".$fileName."'/>";
 
-        $sql = "INSERT INTO Member(PASSWORD, EMAIL, ADDRESS, FULLNAME, BIRTHDAY, MOBILE ,JEDGENUM) VALUES (?, ?, ?, ?, ?, ? ,0)";
+        $sql = "INSERT INTO Member(PASSWORD, EMAIL, ADDRESS, FULLNAME, BIRTHDAY) VALUES (?, ?, ?, ?, ?)";
 
         $pdo->exec($sql);
 
@@ -69,7 +66,6 @@
         $statement->bindValue(3 , $third);
         $statement->bindValue(4 , $fourth);
         $statement->bindValue(5 , $fifth);
-        $statement->bindValue(6 , $sixth);
         $statement->execute();
 
     }

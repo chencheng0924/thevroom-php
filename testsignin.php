@@ -15,12 +15,11 @@
 
     //取得上傳的檔案資訊=======================================
     $SEMAIL = $_POST["SIGNEM"];      
-    $SPASSWORD = $_POST["SIGNPA"]; 
-    $JEDGENUM = $_POST["JEDGENUM"];       
+    $SPASSWORD = $_POST["SIGNPA"];        
     //=======================================================
     // echo $SEMAIL;
 
-    $sql = "SELECT * FROM Member WHERE EMAIL = ? and PASSWORD = ? and JEDGENUM = 0";
+    $sql = "SELECT * FROM Member WHERE EMAIL = ? and PASSWORD = ?";
 
     $statement = $pdo->prepare($sql);
     $statement->bindValue(1, $_POST["SIGNEM"]);

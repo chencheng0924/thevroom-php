@@ -8,7 +8,7 @@
     $pdo = new PDO($dsn, $db_user, $db_pass);
 
     $zero = $_POST["mID"];
-    $sql = "SELECT * FROM FOLLOWAUCTION WHERE MEMBERID = ?";
+    $sql = "SELECT * FROM AUCTIONCOMPLETE a join auctioninfo b on a.AUCTIONID = b.AUCTIONID WHERE HIGHMEMBERID = ?";
     $statement = $pdo->prepare($sql);
     $statement->bindValue(1 , $zero);
     $statement->execute();
