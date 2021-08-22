@@ -23,6 +23,7 @@
         $third = $_POST["FULLNAME"]; 
         $fourth = $_POST["MESSAGECONTENT"];    //檔案種類        
         $fifth = $_POST["DATE"];    //檔案種類   
+        $sixth = $_POST["JUDGENUM"];    //檔案種類   
         //=======================================================
         //顯示檔案資訊
         // echo "檔案存放位置：".$filePath;
@@ -35,7 +36,7 @@
         // echo "<br/>";
         // echo "<img src='/img/".$fileName."'/>";
 
-        $sql = "INSERT INTO FORUMREPLY(MEMBERID, ARTICLEID, FULLNAME, MESSAGECONTENT, DATE) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO FORUMREPLY(MEMBERID, ARTICLEID, FULLNAME, MESSAGECONTENT, DATE, JUDGENUM) VALUES (?, ?, ?, ?, ?, 0)";
 
         $statement = $pdo->prepare($sql);
         $statement->bindValue(1 , $first);
