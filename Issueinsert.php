@@ -27,6 +27,7 @@
         $filePath_Temp = $_FILES["ARTICLEIMG"]["tmp_name"];  //Server上的暫存檔路徑含檔名
         $fileType = $_FILES["ARTICLEIMG"]["type"];  //檔案種類
         $fileSize = $_FILES["ARTICLEIMG"]["size"];  //檔案尺寸
+        $sixth = $_POST['JUEGENUM'];
         //=======================================================
 
         //Web根目錄真實路徑
@@ -58,7 +59,7 @@
         // echo "<br/>";
         // echo "<img src='/img/".$fileName."'/>";
 
-        $sql = "INSERT INTO FORUM(MEMBERID, DATE, ARTICLEIMG, TOPICTYPE, SUBJECTNAME, CONTENT) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO FORUM(MEMBERID, DATE, ARTICLEIMG, TOPICTYPE, SUBJECTNAME, CONTENT, JUDGENUM) VALUES (?, ?, ?, ?, ?, ?, 0)";
 
         $statement = $pdo->prepare($sql);
         $statement->bindValue(1 , $first);
